@@ -1,0 +1,23 @@
+{
+  "name": "gpcl",
+  "version": "0.2.7",
+  "description": "personal utility for loading project configuration",
+  "repository": "git@github.com:gerardmrk/gpcl.git",
+  "author": "Gerard Chin <gerardchin91@gmail.com>",
+  "license": "MIT",
+  "main": "lib/index.js",
+  "types": "lib/index.d.ts",
+  "scripts": {
+    "transpile": "node_modules/.bin/tsc"
+  },
+  "dependencies": {
+    "@types/dotenv": "^4.0.1",
+    "dotenv": "^4.0.0",
+    "js-yaml": "^3.10.0"
+  },
+  "devDependencies": {
+    "@types/js-yaml": "^3.9.1",
+    "@types/node": "^8.0.31",
+    "typescript": "^2.5.3"
+  }
+}

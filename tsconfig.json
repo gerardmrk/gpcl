@@ -1,0 +1,9 @@
+{
+  "compilerOptions": {
+    "module": "commonjs",
+    "sourceMap": true,
+    "declaration": true,
+    "allowSyntheticDefaultImports": false,
+    "outDir": "lib"
+  }
+}
