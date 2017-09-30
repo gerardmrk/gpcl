@@ -1,50 +1,59 @@
+/**
+ * This whole function must be inherently synchronous;
+ * 
+ * since this is mainly invoked pre-initialization for configs like
+ * webpack, fusebox, gulp, etc., making this function asynchronous
+ * will create awkward workarounds in the config files (e.g. you can't
+ * initialize gulp's default tasks in a then callback).
+ */
+import { exit } from "process";
 import { resolve } from "path";
 import { readFileSync } from "fs";
 
-import { config as env } from "dotenv";
 import { load, Type, Schema } from "js-yaml";
 
-export interface ConfigObject<T> {
-  readonly [k: string]: T;
-}
+import findRootDir from "./findRootDir";
+import findConfigFile from "./findConfigFile";
+import getConfigObj, { ConfigObject } from "./getConfigObj";
 
-export interface Params {
-  readonly envFile?: string;
-  readonly configFile?: string;
-  readonly rootDir?: string;
-}
+export const loadConfig = <T = any>(
+  configFile?: string,
+  rootDir?: string | void
+): ConfigObject<T> => {
+  if (!rootDir) {
+    // if rootDir not specified, walk up directory tree and find it.
+    rootDir = findRootDir(process.cwd(), [
+      "package.json",
+      ".git",
+      ".gitignore",
+      ".config"
+    ]);
+  }
 
-const gcpl = <T = any>({
-  envFile,
-  configFile,
-  rootDir
-}: Params): ConfigObject<T> => {
-  // TODO: search up the directory tree for the paths that were not specified
-  if (!envFile) envFile = ".env";
-  if (!configFile) configFile = "config.yml";
-  if (!rootDir) rootDir = process.cwd();
+  if (!configFile && rootDir) {
+    // if `configFile` not specified, but `rootDir` was specified OR derived,
+    // attempt to find `configFile` using `rootDir`.
+    configFile = findConfigFile(rootDir, [
+      "config.yml",
+      "settings.yml",
+      ".config/config.yml",
+      ".config/settings.yml",
+      ".config/main.yml",
+      ".config/index.yml",
+      ".config/project.yml"
+    ]);
+  }
 
-  // load custom environment variables
-  env({ path: envFile });
+  if (!configFile || !rootDir) {
+    // if neither `configFile` & `rootDir` were specified nor were they
+    // found/derived, log an error and exit process (rather than throwing an exception)
+    console.error("root dir or/and config not specified or found");
+    return exit(1);
+  }
 
-  // declare custom schema
-  const configSchema: Schema = Schema.create([
-    // enable environment variable references in the Yaml file
-    new Type("!env", {
-      kind: "scalar",
-      construct: env => process.env[env]
-    }),
-    // enable path references (resolved from root project dir) in the Yaml file
-    new Type("!path", {
-      kind: "scalar",
-      construct: path => `${rootDir}/${path}`
-    })
-  ]);
+  // const config: ConfigObject<T> = getConfigObj<T>(rootDir, configFile);
 
-  // load the Yaml file and return an object of its content
-  return load(readFileSync(configFile, "utf8"), {
-    schema: configSchema
-  });
+  // return config;
+
+  return {};
 };
-
-export default gcpl;

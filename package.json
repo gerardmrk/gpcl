@@ -11,8 +11,6 @@
     "transpile": "node_modules/.bin/tsc"
   },
   "dependencies": {
-    "@types/dotenv": "^4.0.1",
-    "dotenv": "^4.0.0",
     "js-yaml": "^3.10.0"
   },
   "devDependencies": {
