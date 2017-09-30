@@ -33,6 +33,8 @@ export const loadConfig = <T = any>(
   if (!configFile && rootDir) {
     // if `configFile` not specified, but `rootDir` was specified OR derived,
     // attempt to find `configFile` using `rootDir`.
+    // note: order matters here; if the first result matches and the others
+    // are also valid, it will short circuit anyways.
     configFile = findConfigFile(rootDir, [
       "config.yml",
       "settings.yml",
@@ -51,9 +53,7 @@ export const loadConfig = <T = any>(
     return exit(1);
   }
 
-  // const config: ConfigObject<T> = getConfigObj<T>(rootDir, configFile);
+  const config: ConfigObject<T> = getConfigObj<T>(configFile, rootDir);
 
-  // return config;
-
-  return {};
+  return config;
 };

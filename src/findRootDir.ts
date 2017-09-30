@@ -11,15 +11,14 @@ const findRootDir = (pwd: string, toMatch: string[]): string | void => {
     if (isRoot) break;
     ctx = ctx.substring(0, ctx.length - paths[i].length - 1);
   }
-  console.log(ctx);
 
   return ctx;
 };
 
 const handleScanDir = (toMatch: string[]) => (dir: string): boolean => {
   const files = readdirSync(dir);
-  const v = new Set([...files, ...toMatch]);
-  return files.length === v.size;
+  const uniques = new Set([...files, ...toMatch]);
+  return files.length === uniques.size;
 };
 
 export default findRootDir;
