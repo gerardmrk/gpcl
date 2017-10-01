@@ -1,4 +1,4 @@
-# project configuration loader
+# generic project configuration loader
 
 **STATUS**: still in progress
 
@@ -17,5 +17,12 @@ Templates:
 ```
 **`output`**
 ```js
+  import { loadConfigSync } from 'gpcl'
 
+  const config = loadConfigSync()
+
+  const {
+    IAC: { Stage }, // --> process.env.NODE_ENV
+    Templates: { LocalPath } // --> [rootPath]/lib/blueprints
+  } = config
 ```

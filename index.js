@@ -1,5 +1,5 @@
-const { loadConfig } = require("./lib");
+const { loadConfigSync } = require("./lib");
 
-const config = loadConfig();
+const config = loadConfigSync();
 
 console.log(config);

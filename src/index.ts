@@ -16,7 +16,7 @@ import findRootDir from "./findRootDir";
 import findConfigFile from "./findConfigFile";
 import getConfigObj, { ConfigObject } from "./getConfigObj";
 
-export const loadConfig = <T = any>(
+export const loadConfigSync = <T = any>(
   configFile?: string,
   rootDir?: string | void
 ): ConfigObject<T> => {
@@ -26,7 +26,7 @@ export const loadConfig = <T = any>(
       "package.json",
       ".git",
       ".gitignore",
-      ".config"
+      "node_modules"
     ]);
   }
 
@@ -53,6 +53,7 @@ export const loadConfig = <T = any>(
     return exit(1);
   }
 
+  // load the config
   const config: ConfigObject<T> = getConfigObj<T>(configFile, rootDir);
 
   return config;

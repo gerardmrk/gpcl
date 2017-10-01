@@ -6,7 +6,7 @@
     {
       "taskName": "transpile ts",
       "type": "shell",
-      "command": "yarn run transpile"
+      "command": "yarn run transpile:watch"
     }
   ]
 }
