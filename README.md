@@ -8,6 +8,8 @@
 
 A generic project configuration loader.
 
+There's probably hundreds out there, but the main appeal of this particular one is the ability to invoke it anywhere in your codebase, without needing to specify anything else (like the config file path itself), with certain prerequisites of course.
+
 ## Installation:
 
 ```
