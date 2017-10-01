@@ -20,6 +20,7 @@
     "@types/js-yaml": "^3.9.1",
     "@types/node": "^8.0.31",
     "ava": "^0.22.0",
+    "coveralls": "^3.0.0",
     "nyc": "^11.2.1",
     "tap-spec": "^4.1.1",
     "typescript": "^2.5.3"

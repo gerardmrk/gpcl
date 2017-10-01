@@ -1,4 +1,4 @@
-[![Coverage Status](https://coveralls.io/repos/github/gerardmrk/gpcl/badge.svg?branch=master)](https://coveralls.io/github/gerardmrk/gpcl?branch=master)
+[![Coverage Status](https://coveralls.io/repos/github/gerardmrk/gpcl/badge.svg)](https://coveralls.io/github/gerardmrk/gpcl)
 
 # generic project configuration loader
 
