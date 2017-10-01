@@ -1,4 +1,5 @@
 [![Coverage Status](https://coveralls.io/repos/github/gerardmrk/gpcl/badge.svg)](https://coveralls.io/github/gerardmrk/gpcl)
+[![Dependency Status](https://www.versioneye.com/user/projects/59d082b015f0d723152e3587/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/59d082b015f0d723152e3587)
 
 # gpcl
 
