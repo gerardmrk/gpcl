@@ -1,6 +1,6 @@
 {
   "name": "gpcl",
-  "version": "1.0.0",
+  "version": "1.0.1",
   "description": "personal utility for loading project configuration",
   "repository": "git@github.com:gerardmrk/gpcl.git",
   "author": "Gerard Chin <gerardchin91@gmail.com>",
