@@ -2,7 +2,7 @@ import { resolve } from "path";
 
 import test from "ava";
 
-import findConfigFile from "../lib/findConfigFile";
+import findConfigFile from "../.cache_tests/findConfigFile";
 
 const rootDir = resolve(__dirname, "mock_dir");
 

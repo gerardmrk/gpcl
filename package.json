@@ -9,9 +9,10 @@
   "types": "lib/index.d.ts",
   "scripts": {
     "test": "nyc ava --tap | tap-spec",
-    "transpile": "node_modules/.bin/tsc",
+    "transpile": "node_modules/.bin/tsc --outDir lib",
     "transpile:watch": "node_modules/.bin/tsc --watch",
-    "pretest": "npm run transpile",
+    "pretest": "node_modules/.bin/tsc --sourceMap --outDir .cache_tests",
+    "posttest": "node_modules/.bin/rimraf .cache_tests",
     "prepublish": "npm run transpile"
   },
   "dependencies": {
@@ -23,6 +24,7 @@
     "ava": "^0.22.0",
     "coveralls": "^3.0.0",
     "nyc": "^11.2.1",
+    "rimraf": "^2.6.2",
     "tap-spec": "^4.1.1",
     "typescript": "^2.5.3"
   }

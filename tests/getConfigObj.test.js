@@ -2,7 +2,7 @@ import { resolve } from "path";
 
 import test from "ava";
 
-import getConfigObj from "../lib/getConfigObj";
+import getConfigObj from "../.cache_tests/getConfigObj";
 
 const validConfig = resolve(__dirname, "assets", "valid_config.yml");
 const invalidConfig = resolve(__dirname, "assets", "invalid_config.yml");

@@ -2,7 +2,7 @@ import { resolve } from "path";
 
 import test from "ava";
 
-import findRootDir from "../lib/findRootDir";
+import findRootDir from "../.cache_tests/findRootDir";
 
 const criteria = [
   ".config",
