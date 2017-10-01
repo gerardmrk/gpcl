@@ -1,5 +1,6 @@
-import test from "ava";
 import { resolve } from "path";
+
+import test from "ava";
 
 import findRootDir from "../lib/findRootDir";
 
