@@ -1,0 +1,17 @@
+.DS_Store
+
+*.log
+
+*.env
+
+node_modules
+
+coverage
+
+.nyc_output
+
+.cache_tests
+
+.vscode
+
+tests

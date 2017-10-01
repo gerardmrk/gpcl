@@ -7,6 +7,9 @@
   "license": "MIT",
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
+  "engines": {
+    "node": ">=v8.0.0"
+  },
   "scripts": {
     "test": "nyc ava --tap | tap-spec",
     "transpile": "node_modules/.bin/tsc --outDir lib",
