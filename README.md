@@ -104,8 +104,8 @@ This comes bundled with its own type definitions for **TypeScript**, so you'll g
 
 ## Todos:
 
-- [ ] complete all tests
-- [ ] bump npm package to v1
+- [x] complete all tests
+- [x] bump npm package to v1
 - [ ] write and test for Go
 - [ ] generate godocs
 - [ ] set go package version
