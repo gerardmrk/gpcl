@@ -2,12 +2,11 @@
 [![Dependency Status](https://www.versioneye.com/user/projects/59d082b015f0d723152e3587/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/59d082b015f0d723152e3587)
 [![Build Status](https://travis-ci.org/gerardmrk/gpcl.svg?branch=master)](https://travis-ci.org/gerardmrk/gpcl)
 [![Coverage Status](https://coveralls.io/repos/github/gerardmrk/gpcl/badge.svg)](https://coveralls.io/github/gerardmrk/gpcl)
+[![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
 # gpcl
 
 A generic project configuration loader.
-
-If this does not fit your needs, feel free to fork or contribute!
 
 ## Installation:
 
@@ -22,12 +21,12 @@ $ yarn add gpcl
 
 ## Example:
 
-**src/app/index.js**
+**src/backend/web/app/setup.js**
 ```js
 import { loadConfigSync } from "gpcl";
 
 const config = loadConfigSync();
-console.log(config);
+// ...
 ```
 
 **.config/config.yml**
@@ -108,3 +107,9 @@ This comes bundled with its own type definitions for **TypeScript**, so you'll g
 - [ ] write and test for Go
 - [ ] generate godocs
 - [ ] set go package version
+
+## Remarks
+
+I created this after repetitively copy-pasting the same code across various private side-projects for loading configuration, and it became tedious to use `path.resolve(__dirname, '..', '..', '..' /* etc */)` on the same config file when calling it from multiple places in the codebase.
+
+If this does not fit your needs, feel free to fork or contribute!
