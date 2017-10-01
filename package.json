@@ -8,7 +8,7 @@
   "main": "lib/index.js",
   "types": "lib/index.d.ts",
   "scripts": {
-    "test": "ava",
+    "test": "nyc ava --tap | tap-spec",
     "transpile": "node_modules/.bin/tsc",
     "transpile:watch": "node_modules/.bin/tsc --watch",
     "pretest": "yarn run transpile"
@@ -20,6 +20,8 @@
     "@types/js-yaml": "^3.9.1",
     "@types/node": "^8.0.31",
     "ava": "^0.22.0",
+    "nyc": "^11.2.1",
+    "tap-spec": "^4.1.1",
     "typescript": "^2.5.3"
   }
 }

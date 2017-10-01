@@ -1,8 +1,8 @@
-const { resolve } = require("path");
+import { resolve } from "path";
 
-const test = require("ava");
+import test from "ava";
 
-const findConfigFile = require("../lib/findConfigFile").default;
+import findConfigFile from "../lib/findConfigFile";
 
 const rootDir = resolve(__dirname, "mock_dir");
 
@@ -28,7 +28,7 @@ for (let i = 0, x = valids.length; i < x; i++) {
   mix.push(invalids[i]);
 }
 
-test("returns the only first valid path found", t => {
+test("returns only the first valid path found", async t => {
   let configFile = findConfigFile(rootDir, mix);
   t.is(configFile, `${rootDir}/${valid01}`);
 
@@ -38,12 +38,12 @@ test("returns the only first valid path found", t => {
   t.is(configFile, `${rootDir}/${valid00}`);
 });
 
-test("returns undefined if no valid paths found", t => {
+test("returns undefined if no valid paths found", async t => {
   const configFile = findConfigFile(rootDir, invalids);
   t.falsy(configFile);
 });
 
-test("ignores a valid path that isn't a file", t => {
+test("ignores a valid path that isn't a file", async t => {
   const invalidValid = ".config/terraform";
   const newMix = [invalidValid, ...mix];
 
