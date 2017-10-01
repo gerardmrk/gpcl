@@ -1,0 +1,11 @@
+IAC:
+  Region: !env AWS_REGION
+  Stage: !env APP_ENV
+
+  &Templates:
+    Local: !path lib/blueprints
+    BucketKey: infrastructure/blueprints
+
+Development:
+  ServerAddr: '0.0.0.0:4200'
+  Hateoas: !path .meta/dev/docker_endpoints.json
