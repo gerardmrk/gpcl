@@ -1,13 +1,13 @@
-[![Coverage Status](https://coveralls.io/repos/github/gerardmrk/gpcl/badge.svg)](https://coveralls.io/github/gerardmrk/gpcl)
+[![npm version](https://badge.fury.io/js/gpcl.svg)](https://badge.fury.io/js/gpcl)
 [![Dependency Status](https://www.versioneye.com/user/projects/59d082b015f0d723152e3587/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/59d082b015f0d723152e3587)
+[![Build Status](https://travis-ci.org/gerardmrk/gpcl.svg?branch=master)](https://travis-ci.org/gerardmrk/gpcl)
+[![Coverage Status](https://coveralls.io/repos/github/gerardmrk/gpcl/badge.svg)](https://coveralls.io/github/gerardmrk/gpcl)
 
 # gpcl
 
 A generic project configuration loader.
 
-Got tired of writing code to load configuration in my various private side projects, so I extracted this into its own package.
-
- This is catered to my personal preferences, so if this does not fit your needs, feel free to fork or contribute!
+If this does not fit your needs, feel free to fork or contribute!
 
 ## Installation:
 
@@ -17,17 +17,13 @@ $ yarn add gpcl
 
 ## Usage:
 
-1. Add a **YAML** file to your project directory (see [here](#configpath) for allowed locations).
+1. Add a **YAML** file to your project directory (see [here](#configpath) for default supported locations).
 2. Call `loadConfigSync()` in your script to access your config object.
 
 ## Example:
 
 **.config/config.yml**
 ```yml
-# - `!env ...` references an environment variable
-# - `!path ...` references a local path relative from
-#    the root project directory
-
 IAC:
   Region: !env AWS_REGION
   Stage: !env APP_ENV
@@ -60,8 +56,6 @@ console.log(config);
 //  },
 //  ...
 //
-// Inject these values into your webpack or fuse-box config!
-
 ```
 
 ## API:
@@ -79,17 +73,11 @@ just pass in `undefined` as the first parameter.
 
 #### configPath:
 - absolute path of your config file.
-- if not specified, it will look for your config file in this order:
+- if not specified, it will look for your config file in this order (first `<rootDir>`, then `<rootDir>/config` and vice versa):
 
-  - `<rootDir>/config.yml`
-  - `<rootDir>/project.yml`
-  - `<rootDir>/settings.yml`
-  - `<rootDir>/.config/config.yml`
-  - `<rootDir>/.config/project.yml`
-  - `<rootDir>/.config/settings.yml`
-  - `<rootDir>/config/config.yml`
-  - `<rootDir>/config/project.yml`
-  - `<rootDir>/config/settings.yml`
+  - `<rootDir[/.config, /config]>/config.yml`
+  - `<rootDir[/.config, /config]>/project.yml`
+  - `<rootDir[/.config, /config]>/settings.yml`
 
 ***Note**: an error will be thrown if both values are not specified AND cannot be inferred.*
 
