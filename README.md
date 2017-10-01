@@ -1,5 +1,6 @@
 [![npm](https://img.shields.io/npm/v/gpcl.svg)](https://www.npmjs.com/package/gpcl)
 [![Dependency Status](https://www.versioneye.com/user/projects/59d082b015f0d723152e3587/badge.svg?style=flat-square)](https://www.versioneye.com/user/projects/59d082b015f0d723152e3587)
+[![Coverage Status](https://coveralls.io/repos/github/gerardmrk/gpcl/badge.svg?branch=master)](https://coveralls.io/github/gerardmrk/gpcl?branch=master)
 [![Build Status](https://travis-ci.org/gerardmrk/gpcl.svg?branch=master)](https://travis-ci.org/gerardmrk/gpcl)
 [![MIT Licence](https://badges.frapsoft.com/os/mit/mit.svg?v=103)](https://opensource.org/licenses/mit-license.php)
 
