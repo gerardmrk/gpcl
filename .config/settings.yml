@@ -1,3 +1,0 @@
-IAC:
-  Region: !env AWS_REGION
-  Bucket: !path kia/ora

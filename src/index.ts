@@ -22,12 +22,7 @@ export const loadConfigSync = <T = any>(
 ): ConfigObject<T> => {
   if (!rootDir) {
     // if rootDir not specified, walk up directory tree and find it.
-    rootDir = findRootDir(process.cwd(), [
-      "package.json",
-      ".git",
-      ".gitignore",
-      "node_modules"
-    ]);
+    rootDir = findRootDir(process.cwd(), ["package.json", "node_modules"]);
   }
 
   if (!configFile && rootDir) {
@@ -37,12 +32,14 @@ export const loadConfigSync = <T = any>(
     // are also valid, it will short circuit anyways.
     configFile = findConfigFile(rootDir, [
       "config.yml",
+      "project.yml",
       "settings.yml",
       ".config/config.yml",
+      ".config/project.yml",
       ".config/settings.yml",
-      ".config/main.yml",
-      ".config/index.yml",
-      ".config/project.yml"
+      "config/config.yml",
+      "config/project.yml",
+      "config/settings.yml"
     ]);
   }
 

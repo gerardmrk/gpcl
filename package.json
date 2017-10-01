@@ -11,7 +11,8 @@
     "test": "nyc ava --tap | tap-spec",
     "transpile": "node_modules/.bin/tsc",
     "transpile:watch": "node_modules/.bin/tsc --watch",
-    "pretest": "yarn run transpile"
+    "pretest": "npm run transpile",
+    "prepublish": "npm run transpile"
   },
   "dependencies": {
     "js-yaml": "^3.10.0"
