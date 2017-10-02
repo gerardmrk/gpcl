@@ -6,9 +6,11 @@
 
 # gpcl
 
-A generic project configuration loader.
+A generic project configuration loader with a simple path-finder.
 
-There's probably hundreds out there, but the main appeal of this particular one is the ability to invoke it anywhere in your codebase, without needing to specify anything else (like the config file path itself), with certain prerequisites of course.
+It searches for your config file and loads it.
+
+No more `someConfigLoader(resolve(__dirname, '..', '..', '..', 'config', 'main.yml'))` !
 
 ## Installation:
 
