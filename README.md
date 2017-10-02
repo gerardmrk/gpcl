@@ -25,7 +25,7 @@ $ yarn add gpcl
 
 ## Example:
 
-**src/backend/web/app/setup.js**
+**src/backend/web/app/environments/uat/setup.js**
 ```js
 import { loadConfigSync } from "gpcl";
 
